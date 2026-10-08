@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <title>Atlas of Southeast Asia</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <div class="header">
+        <small>ELEVEN NATIONS - ONE ARCHIPELAGO OF NAMES</small>
+        <h1>The <i>Nickname</i><br>Atlas of Southeast Asia</h1>
+        <p>Every nation in this region carries a name earned through geography, history, and myth.
+           Type a country below to uncover the title it has been given.</p>
+    </div>
+
+    <div class="card">
+        <small>COUNTRY LOOKUP</small>
+        <h3>Enter a Southeast Asian country</h3>
+
+        <input type="text" id="country_name" placeholder="e.g. VietNam">
+        <button onclick="displayNickname()">REVEAL NICKNAME</button>
+
+        <p id="result"></p>
+    </div>
+
+    <div class="footer">
+        Seatwork 1 - 2nd Quarter | 11 nations of Southeast Asia
+    </div>
+
+    <script>
+        var countries = ["Brunei", "Cambodia", "East Timor", "Indonesia", "Laos", "Malaysia",
+                         "Myanmar", "Philippines", "Singapore", "Thailand", "VietNam"];
+
+        var nicknames = ["The Abode of Peace", "The Kingdom of Wonder",
+                         "The Land of the Rising Sun of Timor", "The Emerald of the Equator",
+                         "The Land of a Million Elephants", "Truly Asia",
+                         "The Land of Golden Pagodas", "The Pearl of the Orient Seas",
+                         "The Lion City", "The Land of Smiles",
+                         "The Land of the Ascending Dragon"];
+
+        function displayNickname() {
+            var userInput = document.getElementById("country_name").value.trim();
+            var result = "Country not found. Please try another Southeast Asian nation.";
+
+            for (var i = 0; i < countries.length; i++) {
+                if (countries[i].toLowerCase() == userInput.toLowerCase()) {
+                    result = "Nickname: " + nicknames[i];
+                    break;
+                }
+            }
+
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+
+</body>
+</html>
